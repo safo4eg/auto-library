@@ -1,0 +1,104 @@
+* {
+    box-sizing: content-box;
+}
+
+/* Активная ссылка(текущая страница) */
+
+.nav-link.active {
+    color: #f56c58;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+/* MAIN */
+
+.main {
+    flex-grow: 1;
+}
+
+.form-wrapper {
+	background-color: #363636;
+	border-radius: 5px;
+	margin: 150px auto;
+	width: 300px;
+    box-shadow:  0px 10px 20px 0px rgba(0, 0, 0, 0.3);
+    
+    padding: 20px;
+  
+}
+
+.form-wrapper h1 {
+	background-color: #292829;
+	border-radius: 5px 5px 0px 0px;
+	color: #fff;
+	padding: 20px;
+	text-align: center;
+	text-transform: uppercase;
+	font-size: 14px;
+    letter-spacing: 2px;
+}
+
+.form-wrapper form {
+	width: 270px;
+    
+    margin: 0 auto;
+    margin-top: 20px;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-wrapper form input {
+	font-size: 14px;
+	outline: none;
+    width: 260px;  
+}
+
+.form-wrapper form input {
+    border: 1px solid #292829;
+	border-radius: 3px 3px 0px 0px;
+	padding: 12px 10px;
+	width: 238px;
+}
+
+.form-wrapper form input:nth-child(n + 2) {
+    border-top: none;
+    border-radius: 0px 0px 3px 3px;
+}
+
+.form-wrapper form input.button {
+    background-color: #ebebeb;
+    border: none;
+    border-radius: 3px;
+    color: #404040;
+	cursor: pointer;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    padding: 12px 12px;
+    
+    box-sizing: content-box;
+}
+
+.form-wrapper form input.button:hover  {
+	background-color: #e0e0e0;
+}
+
+.errors {
+    margin-top: 10px;
+    margin-left: 20px;
+    
+    color: #e6e6e6;
+    font-size: 12px;
+}
+
+.errors .error {
+    margin-top: 3px;
+}
+
+
