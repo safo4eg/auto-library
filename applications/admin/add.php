@@ -1,3 +1,4 @@
+<?php include 'add-form.php'; ?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -11,7 +12,6 @@
 </head>
 <body>
     <?php
-        include 'add-form.php';
         include '../../includes/nav.php';
         if(empty($_SESSION['auth']) || $_SESSION['auth']['status'] === 'user') header('Location: /applications/catalog.php');
     ?>

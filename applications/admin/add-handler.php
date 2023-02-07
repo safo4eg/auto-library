@@ -3,10 +3,11 @@
     require('../../utils/funcs.php');
 
     if(!empty($_POST) && isset($_FILES['images'])) {
-        $link = mysqli_connect('auto-library', 'root', '', 'mydb');
+        $link = mysqli_connect('localhost', 'u1933874_default', '1T543Z6NGfAyqcCd', 'u1933874_default');
         if(mysqli_connect_errno()) {
             die('Произошла ошибка соединения'.mysqli_connect_error());
         }
+        mysqli_query($link, "SET NAMES'utf8mb4'");
 
         $relatedTables = ['drive', 'engine', 'transmission', 'body', 'rudder', 'brand'];
         $applicationQuery = "INSERT INTO applications SET";

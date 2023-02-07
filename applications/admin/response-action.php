@@ -5,10 +5,11 @@
 
     if(!empty($_GET)) {
         $data = $_GET['data'];
-        $link = mysqli_connect('auto-library', 'root', '', 'mydb');
+        $link = mysqli_connect('localhost', 'u1933874_default', '1T543Z6NGfAyqcCd', 'u1933874_default');
         if(mysqli_connect_errno()) {
-            die('Ошибка подключения: '.mysqli_connect_error());
+            die('Произошла ошибка соединения'.mysqli_connect_error());
         }
+        mysqli_query($link, "SET NAMES 'utf-8mb4'");
 
         if($data['action'] === 'accept') {
             $query = "UPDATE user_application SET status_id=2 WHERE user_id=$data[user_id] AND application_id=$data[app_id]";

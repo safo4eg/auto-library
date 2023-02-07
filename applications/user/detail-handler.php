@@ -5,10 +5,11 @@
     include '../../utils/base.php';
 
     $id = $_GET['id'];
-    $link = mysqli_connect('auto-library','root','','mydb');
+    $link = mysqli_connect('localhost', 'u1933874_default', '1T543Z6NGfAyqcCd', 'u1933874_default');
     if(mysqli_connect_errno()) {
-        die('Ошибка подключения: '.mysqli_connect_error());
+        die('Произошла ошибка соединения'.mysqli_connect_error());
     }
+    mysqli_query($link, "SET NAMES 'utf8mb4'");
     $applicationQuery = "SELECT applications.* FROM applications WHERE id=$id";
     $result = mysqli_query($link, $applicationQuery) or die(mysqli_error($link));
     $fields = array_keys(mysqli_fetch_assoc($result));

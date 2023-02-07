@@ -1,9 +1,10 @@
 <?php
     include '../../utils/base.php';
-    $link = mysqli_connect('auto-library', 'root', '', 'mydb');
+    $link = mysqli_connect('localhost', 'u1933874_default', '1T543Z6NGfAyqcCd', 'u1933874_default');
     if(mysqli_connect_errno()) {
         die('Произошла ошибка соединения'.mysqli_connect_error());
     }
+    mysqli_query($link, "SET NAMES 'utf8mb4'");
     if(empty($_SESSION['auth']) || $_SESSION['auth']['status'] === 'user') header('Location: ../user/catalog.php');
     if(!empty($_POST)) {
         $id = $_POST['id'];

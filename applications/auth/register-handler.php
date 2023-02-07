@@ -14,10 +14,11 @@
         $pass = '';
         $db = 'mydb';
 
-        $link = mysqli_connect($host, $user, $pass, $db);
+        $link = mysqli_connect('localhost', 'u1933874_default', '1T543Z6NGfAyqcCd', 'u1933874_default');
         if(mysqli_connect_errno()) {
-            die('Ошибка подключения: ' . mysqli_connect_error());
+            die('Произошла ошибка соединения'.mysqli_connect_error());
         }
+        mysqli_query($link, "SET NAMES 'utf-8mb4'");
 
         $query = "SELECT * from users WHERE login='$login'";
         $result = mysqli_query($link, $query) or die(mysqli_error($link));
