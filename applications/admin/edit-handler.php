@@ -4,7 +4,7 @@
     if(mysqli_connect_errno()) {
         die('Произошла ошибка соединения'.mysqli_connect_error());
     }
-    if(empty($_SESSION['auth']) || $_SESSION['auth']['status'] === 'user') header('Location: /applications/catalog.php');
+    if(empty($_SESSION['auth']) || $_SESSION['auth']['status'] === 'user') header('Location: ../user/catalog.php');
     if(!empty($_POST)) {
         $id = $_POST['id'];
         $relatedTables = ['drive', 'engine', 'transmission', 'body', 'rudder', 'brand'];
@@ -34,11 +34,11 @@
         $editQuery = rtrim($editQuery, ',')." WHERE id=$id";
 
         mysqli_query($link, $editQuery) or die(mysqli_error($link));
-        header('Location: /applications/admin/applications.php');
+        header('Location: applications.php');
 
     } else {
-        if(empty($_GET['id'])) header('Location: /applications/admin/applications.php');
-        header("Location: /applications/admin/applications.php?edit=1&id=$_GET[id]");
+        if(empty($_GET['id'])) header('Location: applications.php');
+        header("Location: applications.php?edit=1&id=$_GET[id]");
     }
 
 

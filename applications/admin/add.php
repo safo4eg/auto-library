@@ -5,8 +5,8 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="/css/header.css">
-    <link rel="stylesheet" href="/css/add.css">
+    <link rel="stylesheet" href="../../css/header.css">
+    <link rel="stylesheet" href="../../css/add.css">
     <title>Добавить</title>
 </head>
 <body>
@@ -18,7 +18,7 @@
 <main>
     <div class="container">
         <h2 class="title">Новое обьявление</h2>
-        <form action="/applications/admin/add-handler.php" method="post" enctype="multipart/form-data">
+        <form action="add-handler.php" method="post" enctype="multipart/form-data">
             <div class="item">
                 <span>Название</span>
                 <input type="text" name="title" required>
@@ -67,14 +67,14 @@
             <?php unset($_SESSION['form']) ?>
         </form>
 
-        <?php if(isset($_SESSION['errors'])): ?>
+        <?php if(isset($_SESSION['errors'])) { ?>
             <ul class="errors">
-                <?php foreach($_SESSION['errors'] as $error): ?>
+                <?php foreach($_SESSION['errors'] as $error) { ?>
                     <li class="error"><?= $error ?></li>
-                <?php endforeach; ?>
+                <?php } ?>
             </ul>
             <?php unset($_SESSION['errors'])?>
-        <?php endif; ?>
+        <?php } ?>
     </div>
 </main>
 </body>

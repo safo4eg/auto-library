@@ -41,7 +41,7 @@
         $_FILES['images'] = format_images_array($_FILES['images']);
         $imagesNames = [];
         foreach($_FILES['images'] as $image) {
-            $imagesNames[] = upload_image($image, $_SERVER['DOCUMENT_ROOT'].'/media/uploads');
+            $imagesNames[] = upload_image($image, '../../media/uploads');
         }
 
         mysqli_query($link, $applicationQuery) or die(mysqli_error($link));
@@ -55,7 +55,7 @@
             mysqli_query($link, $application_image) or die(mysqli_error($link));
         }
 
-        header("Location: /applications/detail.php?id=$applicationId");
+        header("Location: ../user/detail.php?id=$applicationId");
 
     } else {
         $_SESSION['errors'][] = 'Все поля должны быть заполнены!';

@@ -6,9 +6,9 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="/css/header.css">
-    <link rel="stylesheet" href="/css/applications.css">
-    <link rel="stylesheet" href="/css/add.css">
+    <link rel="stylesheet" href="../../css/header.css">
+    <link rel="stylesheet" href="../../css/applications.css">
+    <link rel="stylesheet" href="../../css/add.css">
     <title>Все обьявления</title>
 </head>
 <body>
@@ -17,12 +17,12 @@
     <main>
         <div class="container">
 
-            <?php if(isset($_GET['edit'])): ?>
+            <?php if(isset($_GET['edit'])) { ?>
                 <?php include 'add-form.php'; ?>
                 <?php $formData = include 'edit-data.php' ?>
 
                 <h2 class="title">Редактировать обьявление</h2>
-                <form action="/applications/admin/edit-handler.php" method="post" enctype="multipart/form-data">
+                <form action="edit-handler.php" method="post" enctype="multipart/form-data">
                     <div class="item">
                         <span>Название</span>
                         <input type="text" name="title" required value="<?= $formData['title'] ?>">
@@ -65,21 +65,21 @@
 
                     <div class="item">
                         <input type="submit" value="Редактировать">
-                        <a href="/applications/admin/applications.php">Отменить</a>
+                        <a href="applications.php">Отменить</a>
                     </div>
                     <?php unset($_SESSION['form']) ?>
                 </form>
 
-                <?php if(isset($_SESSION['errors'])): ?>
+                <?php if(isset($_SESSION['errors'])) { ?>
                     <ul class="errors">
-                        <?php foreach($_SESSION['errors'] as $error): ?>
+                        <?php foreach($_SESSION['errors'] as $error) { ?>
                             <li class="error"><?= $error ?></li>
-                        <?php endforeach; ?>
+                        <?php } ?>
                     </ul>
                     <?php unset($_SESSION['errors'])?>
-                <?php endif; ?>
+                <?php } ?>
 
-            <?php endif; ?>
+            <?php } ?>
 
             <table class="table">
                 <thead>
@@ -94,20 +94,20 @@
                 </thead>
                 <tbody>
 
-                <?php foreach($applications as $application): ?>
+                <?php foreach($applications as $application) { ?>
                     <tr>
                         <td>
-                            <a href="/applications/detail.php?id=<?= $application['id'] ?>"><?= $application['title']?></a>
+                            <a href="../user/detail.php?id=<?= $application['id'] ?>"><?= $application['title']?></a>
                         </td>
                         <td><?= $application['brand_title'] ?></td>
                         <td><?= $application['year'] ?></td>
                         <td><?= $application['price'] ?></td>
                         <td><?= $application['book_title'] ?></td>
-                        <td><a href="/applications/admin/edit-handler.php?id=<?= $application['id']?>">Редактировать</a></td>
-                        <td><a href="/applications/admin/hide.php?id=<?= $application['id']?>&book=<?= $application['book_title']?>"><?= $application['book_title'] === 'free'? 'Скрыть': 'Показать' ?></a></td>
-                        <td><a href="/applications/admin/delete.php?id=<?= $application['id']?>">Удалить</a></td>
+                        <td><a href="edit-handler.php?id=<?=$application['id']?>">Редактировать</a></td>
+                        <td><a href="hide.php?id=<?=$application['id']?>&book=<?= $application['book_title']?>"><?= $application['book_title'] === 'free'? 'Скрыть': 'Показать' ?></a></td>
+                        <td><a href="delete.php?id=<?=$application['id']?>">Удалить</a></td>
                     </tr>
-                <?php endforeach; ?>
+                <?php } ?>
 
                 </tbody>
             </table>
