@@ -1,5 +1,5 @@
 <?php
-    $link = mysqli_connect('localhost', 'u1933874_default', '1T543Z6NGfAyqcCd', 'u1933874_default');
+    $link = mysqli_connect('localhost', 'root', 'QWEasd123', 'mydb');
     if(mysqli_connect_errno()) {
         die('Произошла ошибка соединения'.mysqli_connect_error());
     }
